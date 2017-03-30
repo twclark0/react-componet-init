@@ -1,4 +1,8 @@
-{
+const prompt = require('prompt');
+const fs = require('fs');
+
+
+let def = {
   "name": "react-component-init",
   "version": "1.0.0",
   "description": "Boliderplate for creating and publishing react components to npm",
@@ -13,10 +17,6 @@
     "lint": "eslint src",
     "setup": "node test.js"
   },
-  "keywords": [
-    "react-component",
-    "initial component setup"
-  ],
   "author": "Tyler Clark",
   "license": "",
   "devDependencies": {
@@ -53,3 +53,42 @@
     "react": "^15.4.2"
   }
 }
+
+
+prompt.start();
+
+const schema = {
+  properties: {
+    name: {
+      pattern: /^[a-zA-Z\s\-]+$/,
+      message: 'Name is required',
+      required: true
+    },
+    description: {
+      default : ''
+    },
+    author : {
+      required: true,
+      message: 'Author is required',
+    },
+    license : {
+      default : ''
+    }
+  }
+};
+
+prompt.get(schema, function (err, result) {
+
+  let obj = def
+
+  obj.name = result.name
+  obj.description = result.description
+  obj.author = result.author
+  obj.license = result.license
+
+  fs.writeFile("./package2.json", JSON.stringify(obj), function(err) {
+      if(err) return console.log(err);
+
+      console.log("New package.json has been saved!");
+  });
+});
