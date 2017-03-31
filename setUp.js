@@ -86,7 +86,7 @@ prompt.get(schema, function (err, result) {
   obj.author = result.author
   obj.license = result.license
 
-  fs.writeFile("./package2.json", JSON.stringify(obj), function(err) {
+  fs.writeFile("./package.json", JSON.stringify(obj), function(err) {
       if(err) return console.log(err);
 
       console.log("New package.json has been saved!");

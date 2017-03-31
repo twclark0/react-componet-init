@@ -8,8 +8,9 @@ Finally an easy way to create a React component and publish it to npm! This pack
 
 ### Commands
 
-* `Git clone _project_` to clone project
-* `npm run setup` to initialize package.json to your new component
+* `Git clone project` to clone project
+* `npm install` to install dependencies
+* `npm run setup` to update package.json for your new component
 
 #### Run storybook, tests, and linting on component
 

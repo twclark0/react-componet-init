@@ -11,7 +11,7 @@
     "test": "tape dist/tests/test.js | tap-spec",
     "start": "npm run components",
     "lint": "eslint src",
-    "setup": "node test.js"
+    "setup": "node setUp.js"
   },
   "keywords": [
     "react-component",
